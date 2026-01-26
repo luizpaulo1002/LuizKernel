@@ -6,8 +6,6 @@ Um sistema operacional com meu nome para fins educacionais e para aprendizado.
 
 Kernel minimalista em C para arquitetura x86, desenvolvido para aprender sobre sistemas operacionais e programação de baixo nível.
 
-## Captura de tela
-
 ![LuizSystem rodando](img/Rodando.png)
 
 ## Estrutura
