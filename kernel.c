@@ -1,3 +1,9 @@
+
+// Multiboot (para QEMU/GRUB)
+#define MULTIBOOT_MAGIC 0x1BADB002
+#define MULTIBOOT_FLAGS (1 << 0) | (1 << 1)
+#define MULTIBOOT_CHECKSUM -(MULTIBOOT_MAGIC + MULTIBOOT_FLAGS)
+
 // Kernel básico para arquitetura x86
 
 #include <stdint.h>

@@ -6,11 +6,17 @@ Um sistema operacional com meu nome para fins educacionais e para aprendizado.
 
 Kernel minimalista em C para arquitetura x86, desenvolvido para aprender sobre sistemas operacionais e programação de baixo nível.
 
-## Estrutura Atual
+## Captura de tela
+
+![LuizSystem rodando](img/Rodando.png)
+
+## Estrutura
 
 ```
 LuizSystem/
+├── boot.asm
 ├── kernel.c
+├── linker.ld
 ├── README.md
 └── LICENSE
 ```
@@ -18,8 +24,28 @@ LuizSystem/
 ## Compilação
 
 ```bash
+# Compilar boot
+nasm -f elf32 boot.asm -o boot.o
+
+# Compilar kernel
 gcc -m32 -ffreestanding -c kernel.c -o kernel.o
-ld -m elf_i386 -T linker.ld kernel.o -o luizsystem.bin
+
+# Linkar
+ld -m elf_i386 -T linker.ld boot.o kernel.o -o luizsystem.bin
+```
+
+## Executar
+
+```bash
+# Direto com QEMU
+qemu-system-i386 -kernel luizsystem.bin
+
+# Ou criar ISO bootável
+mkdir -p iso/boot/grub
+cp luizsystem.bin iso/boot/
+echo 'menuentry "LuizSystem" { multiboot /boot/luizsystem.bin }' > iso/boot/grub/grub.cfg
+grub-mkrescue -o luizsystem.iso iso/
+qemu-system-i386 -cdrom luizsystem.iso
 ```
 
 ## Licença
@@ -54,4 +80,4 @@ SOFTWARE.
 
 ---
 
-**LuizSystem** - Aprendendo sistemas operacionais na prática (se você leu até aqui pode clonar e usar como quiser :).
+**LuizSystem** - se você leu até aqui pode clonar e usar como quiser.
