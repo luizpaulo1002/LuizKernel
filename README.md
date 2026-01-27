@@ -1,6 +1,6 @@
 # LuizSystem
 
-Um sistema operacional com meu nome para fins educacionais e para aprendizado.
+Um kernel com meu nome para fins educacionais e para aprendizado.
 
 ## Sobre
 
