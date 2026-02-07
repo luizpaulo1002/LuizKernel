@@ -4,7 +4,7 @@ Um kernel feito para fins educacionais e para aprendizado.
 
 ## Sobre
 
-Kernel minimalista em C para arquitetura x86, desenvolvido para aprender sobre sistemas operacionais e programação de baixo nível.
+Kernel minimo em C para arquitetura x86, desenvolvido para aprender sobre sistemas operacionais e programação de baixo nível.
 
 ![LuizKernel rodando](img/Rodando.png)
 
