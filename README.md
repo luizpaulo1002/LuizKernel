@@ -1,17 +1,17 @@
-# LuizSystem
+# LuizKernel
 
-Um kernel com meu nome para fins educacionais e para aprendizado.
+Um kernel feito para fins educacionais e para aprendizado.
 
 ## Sobre
 
 Kernel minimalista em C para arquitetura x86, desenvolvido para aprender sobre sistemas operacionais e programação de baixo nível.
 
-![LuizSystem rodando](img/Rodando.png)
+![LuizKernel rodando](img/Rodando.png)
 
 ## Estrutura
 
 ```
-LuizSystem/
+LuizKernel/
 ├── boot.asm
 ├── kernel.c
 ├── linker.ld
@@ -29,21 +29,21 @@ nasm -f elf32 boot.asm -o boot.o
 gcc -m32 -ffreestanding -c kernel.c -o kernel.o
 
 # Linkar
-ld -m elf_i386 -T linker.ld boot.o kernel.o -o luizsystem.bin
+ld -m elf_i386 -T linker.ld boot.o kernel.o -o luizkernel.bin
 ```
 
 ## Executar
 
 ```bash
 # Direto com QEMU
-qemu-system-i386 -kernel luizsystem.bin
+qemu-system-i386 -kernel luizkernel.bin
 
 # Ou criar ISO bootável
 mkdir -p iso/boot/grub
-cp luizsystem.bin iso/boot/
-echo 'menuentry "LuizSystem" { multiboot /boot/luizsystem.bin }' > iso/boot/grub/grub.cfg
-grub-mkrescue -o luizsystem.iso iso/
-qemu-system-i386 -cdrom luizsystem.iso
+cp luizkernel.bin iso/boot/
+echo 'menuentry "luizkernel.bin" { multiboot /boot/luizkernel.bin }' > iso/boot/grub/grub.cfg
+grub-mkrescue -o luizkernel.iso iso/
+qemu-system-i386 -cdrom luizkernel.iso
 ```
 
 ## Licença
@@ -55,7 +55,7 @@ MIT License - veja [LICENSE](#licença-mit) para detalhes.
 ```
 MIT License
 
-Copyright (c) 2026 LuizSystem
+Copyright (c) 2026 LuizKernel
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -78,4 +78,4 @@ SOFTWARE.
 
 ---
 
-**LuizSystem** - se você leu até aqui pode clonar e usar como quiser.
+**Luizkernel** - se você leu até aqui pode clonar e usar como quiser.
